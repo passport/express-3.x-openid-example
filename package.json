@@ -1,0 +1,27 @@
+{
+  "name": "express-3.x-openid-example",
+  "version": "0.0.0",
+  "description": "Express 3.x app using Passport for authentication via OpenID.",
+  "keywords": [
+    "example",
+    "express",
+    "passport"
+  ],
+  "author": "Jared Hanson",
+  "license": "Unlicense",
+  "homepage": "https://github.com/passport/express-3.x-openid-example",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/passport/express-3.x-openid-example.git"
+  },
+  "bugs": {
+    "url": "https://github.com/passport/express-3.x-openid-example/issues"
+  },
+  "dependencies": {
+    "connect-ensure-login": "^0.1.1",
+    "ejs": "^2.3.3",
+    "express": "^3.21.1",
+    "passport": "^0.2.2",
+    "passport-openid": "^0.3.1"
+  }
+}
