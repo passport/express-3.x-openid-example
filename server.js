@@ -13,9 +13,6 @@ passport.use(new Strategy({
     realm: 'http://localhost:3000/'
   },
   function(identifier, cb) {
-    console.log('GOT IDENTIFER');
-    console.log(identifer);
-    
     return cb(null, { identifier: identifier })
   }));
 
@@ -23,19 +20,18 @@ passport.use(new Strategy({
 // Configure Passport authenticated session persistence.
 //
 // In order to restore authentication state across HTTP requests, Passport needs
-// to serialize users into and deserialize users out of the session.  The
-// typical implementation of this is as simple as supplying the user ID when
-// serializing, and querying the user record by ID from the database when
-// deserializing.
+// to serialize users into and deserialize users out of the session.  In a
+// production-quality application, this would typically be as simple as
+// supplying the user ID when serializing, and querying the user record by ID
+// from the database when deserializing.  However, due to the fact that this
+// example does not have a database, the complete Twitter profile is serialized
+// and deserialized.
 passport.serializeUser(function(user, cb) {
-  cb(null, user.id);
+  cb(null, user);
 });
 
-passport.deserializeUser(function(id, cb) {
-  db.users.findById(id, function (err, user) {
-    if (err) { return cb(err); }
-    cb(null, user);
-  });
+passport.deserializeUser(function(obj, cb) {
+  cb(null, obj);
 });
 
 
